@@ -37,7 +37,6 @@ func main() {
 			"message": "pong",
 		})
 	})
-	r.Run(":8081")
 
 	// Create a new gRPC server
 	server := grpc.NewServer()
@@ -57,4 +56,7 @@ func main() {
 	if err := server.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
+	fmt.Printf("starting server on port %s", port)
+
+	r.Run(":8081")
 }
